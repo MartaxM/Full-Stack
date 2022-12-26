@@ -1,0 +1,14 @@
+db.posts.insert({
+    title: 'Post One',
+    body: 'Body of post one',
+    category: 'News',
+    likes: 4,
+    tags: ['news', 'events'],
+    user: {
+        name: 'John Doe',
+        stauts: 'author'
+    },
+    date: Date()
+})
+
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
