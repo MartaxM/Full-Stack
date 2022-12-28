@@ -12,3 +12,109 @@ db.posts.insert({
 })
 
 DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+
+db.posts.insertMany([
+    {
+    title: 'Post Two',
+    body: 'Body of post two',
+    category: 'Technology',
+    date: Date()
+    },
+    {
+    title: 'Post Three',
+    body: 'Body of post three',
+    category: 'News',
+    date: Date()
+    },
+    {
+    title: 'Post Four',
+    body: 'Body of post three',
+    category: 'Entertainment',
+    date: Date()
+    }
+])
+
+db.posts.find()
+db.posts.find().pretty()
+db.posts.find({category: 'News'})
+db.posts.find().sort({title:1}).pretty()
+1: ascending
+-1: descending
+db.posts.find({category: 'News'}).count()
+db.posts.find().limit(2)
+db.posts.find().forEach( function(doc) { print("Blog post: " + doc.title); });
+db.posts.findOne({category:'News'})
+
+db.posts.replaceOne({ title: 'Post Two' },
+{
+    title: 'Post Two',
+    body: 'New body for post 2',
+    date: Date()
+},
+{
+    upsert: true
+})
+// Usually we want to work with the object id
+
+db.posts.updateOne(
+    { title: 'Post Two' },
+    { $set: { title: 'New Post Two' } },
+    { upsert: true }
+)
+MongoInvalidArgumentError: Update document requires atomic operator.
+
+db.posts.update({title: 'Post One'}, { $inc:{likes:2}})
+db.posts.update({title: 'Post One'}, { $rename:{likes:'views'}})
+
+db.posts.remove({title:'Post Four'})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+
+db.posts.updateOne(
+    { title: 'Post One' },
+    { $set: { comments: [
+            {
+                user: 'Mary Williams',
+                body: 'Comment One',
+                date: Date()
+            },
+            {
+                user: 'Harry White',
+                body: 'Comment Two',
+                date: Date()
+            },
+        ]
+    }},
+)
+
+db.posts.find({
+    comments:{
+        $elemMatch:{
+            user: 'Mary Williams'
+        }
+    }
+})
+
+db.posts.createIndex({ title: 'text' })
+
+db.posts.find({
+    $text:{
+        $search: "\"Post O\""
+    }
+})
+
+db.posts.find({
+    $text:{
+        $search: "\"Post T\""
+    }
+})
+
+db.posts.updateOne(
+    { title: 'Post Two' },
+    { $set: { views: 10 } }
+)
+
+db.posts.find({views: {$gt:3}})
+db.posts.find({views: {$gt:6}})
+db.posts.find({views: {$gte:6}})
+db.posts.find({views: {$lt:6}})
+db.posts.find({views: {$lte:6}})

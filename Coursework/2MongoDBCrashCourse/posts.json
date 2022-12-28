@@ -1,0 +1,47 @@
+[{
+  "_id": {
+    "$oid": "63aa25afe4d5e9696e8ecdf5"
+  },
+  "title": "Post One",
+  "body": "Body of post 1",
+  "category": "News",
+  "tags": [
+    "news",
+    "events"
+  ],
+  "user": {
+    "name": "John Doe",
+    "stauts": "author"
+  },
+  "date": "Mon Dec 26 2022 23:52:31 GMT+0100 (hora estándar de Europa central)",
+  "views": 6,
+  "comments": [
+    {
+      "user": "Mary Williams",
+      "body": "Comment One",
+      "date": "Wed Dec 28 2022 01:22:19 GMT+0100 (hora estándar de Europa central)"
+    },
+    {
+      "user": "Harry White",
+      "body": "Comment Two",
+      "date": "Wed Dec 28 2022 01:22:19 GMT+0100 (hora estándar de Europa central)"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63ab8361d4b14f488f86bc84"
+  },
+  "title": "Post Two",
+  "body": "New body for post 2",
+  "date": "Wed Dec 28 2022 01:12:24 GMT+0100 (hora estándar de Europa central)",
+  "category": "Technology",
+  "views": 10
+},{
+  "_id": {
+    "$oid": "63ab8361d4b14f488f86bc85"
+  },
+  "title": "Post Three",
+  "body": "Body of post three",
+  "category": "News",
+  "date": "Wed Dec 28 2022 00:44:33 GMT+0100 (hora estándar de Europa central)"
+}]
