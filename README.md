@@ -1,3 +1,2 @@
 # Full-Stack
-Marta Xiaoyang Moraga Hernández
-Student number: 001101267
+Marta Xiaoyang Moraga Hernández | Student number: 001101267
