@@ -10,8 +10,10 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { ValidateService } from './services/validate.service';
+import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'flash-messages-angular';
 import { FlashMessagesService } from 'flash-messages-angular';
 
@@ -31,15 +33,16 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    HttpClientModule,
   ],
-  providers: [ValidateService, FlashMessagesService],
+  providers: [ValidateService, FlashMessagesService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
