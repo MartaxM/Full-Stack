@@ -21,6 +21,7 @@
                         [routerLink]="['/login']">Login</a></li>
                 <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a
                         [routerLink]="['/register']">Register</a></li>
+                <li><a href="#" (click)="onLogoutClick()">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
